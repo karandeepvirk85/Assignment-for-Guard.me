@@ -67,5 +67,5 @@ $stringValidateObject = new StringValidate('jkWki123*');
 ?>
 <h2>Floyd Triangle</h2>
 <?php
-    echo nl2br($stringValidateObject->FloydTriangle(7));
+    echo nl2br($stringValidateObject->FloydTriangle(20));
 ?>
