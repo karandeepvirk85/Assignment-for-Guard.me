@@ -13,8 +13,25 @@ body{
 .assignment-outer-container{
     background-color:$assignment-background;
     width: auto;
-    height: 100vh;
-    padding:60px 15%;
+    height: auto;
+    padding:10px 15% 60px 15%;
+    .string-validity{
+        background-color: $assignment-background;
+        padding: 1rem;
+        h1{
+            margin: 6px 0 10px 0;
+        }
+        p{
+            margin:6px;
+        }
+    }
+    .flyod-triangle{
+        background-color: $assignment-background;
+        padding: 1rem;
+        h1{
+            margin: 6px 0 10px 0;
+        }
+    }
     h1{
         color:$heading1Color;
         font-weight: 700;

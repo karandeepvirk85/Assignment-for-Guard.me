@@ -5,8 +5,25 @@ body {
 .assignment-outer-container {
   background-color: #ededed;
   width: auto;
-  height: 100vh;
-  padding: 60px 15%;
+  height: auto;
+  padding: 10px 15% 60px 15%;
+}
+.assignment-outer-container .string-validity {
+  background-color: #ededed;
+  padding: 1rem;
+}
+.assignment-outer-container .string-validity h1 {
+  margin: 6px 0 10px 0;
+}
+.assignment-outer-container .string-validity p {
+  margin: 6px;
+}
+.assignment-outer-container .flyod-triangle {
+  background-color: #ededed;
+  padding: 1rem;
+}
+.assignment-outer-container .flyod-triangle h1 {
+  margin: 6px 0 10px 0;
 }
 .assignment-outer-container h1 {
   color: #000000;
