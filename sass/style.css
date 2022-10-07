@@ -8,6 +8,9 @@ body {
   height: auto;
   padding: 10px 15% 60px 15%;
 }
+.assignment-outer-container a {
+  font-size: 1.5rem;
+}
 .assignment-outer-container .string-validity {
   background-color: #ededed;
   padding: 1rem;

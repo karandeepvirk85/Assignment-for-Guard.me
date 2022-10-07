@@ -15,6 +15,9 @@ body{
     width: auto;
     height: auto;
     padding:10px 15% 60px 15%;
+    a{
+        font-size: 1.5rem;
+    }
     .string-validity{
         background-color: $assignment-background;
         padding: 1rem;

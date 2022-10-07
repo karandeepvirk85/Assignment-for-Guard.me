@@ -32,8 +32,8 @@
     ];
     
     // String to Validate
-    $stringToValidate = 'AsCfgf12*';
-    
+    $stringToValidate = isset($_POST['string_to_validate']) ? $_POST['string_to_validate'] : 'sfR234ki*&'; 
+ 
     // Init Class
     $assignmentObject = new AssignmentClass($stringToValidate, $assignmentContent);
 ?>
@@ -48,6 +48,21 @@
 <body>
     <section>
         <div class="assignment-outer-container">
+            <div class="string-validity">
+                <h1>String Validity</h1>
+                <form method = "POST">
+                    <input type="text" name="string_to_validate" required/>
+                    <button type="submit">Submit</button> 
+                </form>
+                <p><?php echo $assignmentObject->stringToValidate;?></p>
+                <p><?php echo $assignmentObject->isStringValid;?></p>
+            </div>
+
+            <div class="flyod-triangle">
+                <h1>Floyd Triangle</h1>
+                <?php echo nl2br($assignmentObject->printTriangle(6), false);?>
+            </div>
+
             <div class="assignment-inner">
                 <div class="assignment-inner-left">
                     <h1>PRACTICE<span>AREAS</span></h1>
@@ -69,6 +84,7 @@
                     </div>
                 </div>
             </div>
+            <p><a target="_blank" href="assets/assignment.pdf"><i class="fa fa-pdf"></i> For other answers Please view this PDF Document.</a></p>
         </div>
     </section>
 </body>
