@@ -4,11 +4,13 @@ class AssignmentClass{
     public $stringToValidate;
     public $isStringValid = 'String is Not Valid';
     public $assignmentContent;
+    public $triAngleValue;
 
-    function __construct($string, $assignmentContent){
+    function __construct($string, $assignmentContent, $triAngleValue = 9){
         $this->stringToValidate = trim($string);
         $this->assignmentContent = $assignmentContent;
         $this->isStringValid();
+        $this->triangleValue = $triAngleValue;
     }
     /**
     * 
@@ -21,9 +23,18 @@ class AssignmentClass{
     * @ it must contain 1 vowel (a, e, i, o, u)
     */
     public function isStringValid(){
-        if(empty($this->stringToValidate) || strpos($this->stringToValidate,'!') || ctype_upper(substr($this->stringToValidate, 2, 1)) === false){
-            $this->isStringValid = 'String is Not Valid';
+        if(empty($this->stringToValidate)){
+          $this->isStringValid = 'String Cannot be Empty';
+          return;
+        }
+        if(strpos($this->stringToValidate,'!') > 0){
+          $this->isStringValid = 'String cannot have " ! " Symbol';
+          return;
         } 
+        if(ctype_upper(substr($this->stringToValidate, 2, 1)) === false){
+          $this->isStringValid = 'Third Letter must be Upper Case';
+          return;
+        }
 
         $this->isStringValid = preg_match("/^(?=.*\d)(?=.*..[A-Z])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?=.*[aeiou]).{5,20}.$/i", $this->stringToValidate) ? 'String is Valid' : 'String is not Valid';
     }
@@ -44,10 +55,10 @@ class AssignmentClass{
     //     }
     // }
 
-    public function printTriangle($n){
+    public function printTriangle(){
         $strHtml = '';
         $value = 1;
-        for($i = 1; $i <= $n; $i++) {
+        for($i = 1; $i <= $this->triangleValue; $i++) {
           for($j = 1; $j <= $i; $j++) {
             $strHtml .= $value; 
             $value++;

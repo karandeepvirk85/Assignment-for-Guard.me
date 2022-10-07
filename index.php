@@ -30,12 +30,14 @@
             "content" => "I am a paragrpah, Click here to  add your own text and edit me. It's easy"
         ),
     ];
-    
+
+    // Floyd Triangle
+    $triangleValue = isset($_POST['floyd_triangle']) ? $_POST['floyd_triangle'] : 9;
     // String to Validate
     $stringToValidate = isset($_POST['string_to_validate']) ? $_POST['string_to_validate'] : 'sfR234ki*&'; 
  
     // Init Class
-    $assignmentObject = new AssignmentClass($stringToValidate, $assignmentContent);
+    $assignmentObject = new AssignmentClass($stringToValidate, $assignmentContent, $triangleValue);
 ?>
 <head>
     <link rel="stylesheet" href="sass/style.css"/>
@@ -51,7 +53,8 @@
             <div class="string-validity">
                 <h1>String Validity</h1>
                 <form method = "POST">
-                    <input type="text" name="string_to_validate" required/>
+                    <input type="text" placeholder="String to Check Validity" name="string_to_validate"/>
+                    <input type ="number" placeholder="Floyd Triangle Value" name="floyd_triangle"/>
                     <button type="submit">Submit</button> 
                 </form>
                 <p><?php echo $assignmentObject->stringToValidate;?></p>
