@@ -1,71 +1,74 @@
-<?php
-class StringValidate{
-
-    public $stringToValidate;
-    public $isStringValid = false;
-
-    function __construct($string){
-        $this->stringToValidate = $string;
-        $this->isStringValid();
-    }
-    /**
-    * 
-    * ->String Validate
-    * @ at least one letter
-    * @ at least two digits
-    * @ at least one special character, excluding the exclamation mark
-    * @ minimum 5 characters, maximum 20 characters
-    * @ the third letter must be uppercase
-    * @ it must contain 1 vowel (a, e, i, o, u)
-    */
-    public function isStringValid(){
-        if(empty($this->stringToValidate) || strpos($this->stringToValidate,'!') || ctype_upper(substr($this->stringToValidate, 2, 1)) === false){
-            $this->isStringValid = false;
-        } 
-
-        $this->isStringValid = preg_match("/^(?=.*\d)(?=.*..[A-Z])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?=.*[aeiou]).{5,20}.$/i", $this->stringToValidate) ? true : false;
-    }
-
-    /**
-     * Print Floyd Triagle
-     * @ Parameter: Rows
-     * 
-     */
-    // public function printTriangle($numberRows){
-    //     $val = 1;
-    //     for($i = 1; $i <= $numberRows; $i++) {
-    //     for($j = 1; $j <= $i; $j++) {
-    //         echo "$val "; 
-    //         $val++;
-    //     }
-    //         echo "\n"; 
-    //     }
-    // }
-
-    public function FloydTriangle($n){
-        $strHtml = '';
-        $value = 1;
-        for($i = 1; $i <= $n; $i++) {
-          for($j = 1; $j <= $i; $j++) {
-            $strHtml .= $value; 
-            $value++;
-          }
-          $strHtml .= "\r\n";
-        }
-        return $strHtml;
-      }
-}
-
-$stringValidateObject = new StringValidate('jkWki123*');
-?>
-
-<h1>Guard.Me Assignment</h1>
-<h2>String Validate</h2>
-<p>
+<!DOCTYPE html>
 <?php 
-    var_dump($stringValidateObject->isStringValid);
+    // Get Assignment Class
+    require_once('classes/Assignment_Controller.php');
+    
+    // Create Content Array 
+    $assignmentContent = [
+        array(
+            "title" => "LITIGATION",
+            "content" => "I am a paragrpah, Click here to  add your own text and edit me. It's easy"
+        ),
+        array(
+            "title" => "BUSINESS",
+            "content" => "I am a paragrpah, Click here to  add your own text and edit me. It's easy"
+        ),
+        array(
+            "title" => "INSOLVENCY",
+            "content" => "I am a paragrpah, Click here to  add your own text and edit me. It's easy"
+        ),
+        array(
+            "title" => "FRAUD",
+            "content" => "I am a paragrpah, Click here to  add your own text and edit me. It's easy"
+        ),
+        array(
+            "title" => "DISPUTE RESOLUTION",
+            "content" => "I am a paragrpah, Click here to  add your own text and edit me. It's easy"
+        ),
+        array(
+            "title" => "TAX",
+            "content" => "I am a paragrpah, Click here to  add your own text and edit me. It's easy"
+        ),
+    ];
+    
+    // String to Validate
+    $stringToValidate = 'AsCfgf12*';
+    
+    // Init Class
+    $assignmentObject = new AssignmentClass($stringToValidate, $assignmentContent);
 ?>
-<h2>Floyd Triangle</h2>
-<?php
-    echo nl2br($stringValidateObject->FloydTriangle(20));
-?>
+<head>
+    <link rel="stylesheet" href="sass/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>
+        Guarde Me Assignment
+    </title>
+</head>
+<body>
+    <section>
+        <div class="assignment-outer-container">
+            <div class="assignment-inner">
+                <div class="assignment-inner-left">
+                    <h1>PRACTICE<span>AREAS</span></h1>
+                </div>
+                <div class="assignment-inner-right">
+                    <div class="assignment-tiles-outer">
+                        <?php
+                        foreach($assignmentObject->assignmentContent as $arrContent){?>
+                            <div class="assignment-tiles">
+                                <div class="tile-inner">
+                                    <div class="tile-title">
+                                        <i class="fa fa-stop"></i>
+                                        <h2><?php echo $arrContent['title'];?></h2>
+                                    </div>
+                                    <div class="tile-content"><?php echo $arrContent['content'];?></div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

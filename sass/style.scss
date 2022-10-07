@@ -1,0 +1,89 @@
+
+$assignment-background:#ededed;
+$assignment-left:#ebf4f6;
+$assignment-right:#ffffff;
+$text-color:#888888;
+$heading2Color:#000000;
+$heading1Color:#000000;
+
+body{
+    margin:0;
+}
+
+.assignment-outer-container{
+    background-color:$assignment-background;
+    width: auto;
+    height: 100vh;
+    padding:60px 15%;
+    h1{
+        color:$heading1Color;
+        font-weight: 700;
+        font-size: 2rem;
+        span{
+            font-weight: normal;
+            display: block;
+        }
+    }
+    .assignment-inner{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: auto;
+        align-items: initial;
+        .assignment-inner-left{
+            height: auto;
+            background-color:$assignment-left;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            padding: 60px 1rem 60px 2rem;
+        }
+        .assignment-inner-right{
+            width: 70%;
+            background-color: $assignment-right;
+            box-shadow: 6px 0px 4px -2px #c7c7c742;
+            padding: 30px 2rem;
+            border: 1px solid #dfdfdf94;
+            border-left: none;
+            .assignment-tiles-outer{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-column-gap: 2rem;
+                .assignment-tiles{
+                    .tile-inner{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: baseline;
+                        .tile-title{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            i{
+                                color: rgb(83 182 196);
+                                font-size: 0.8rem;
+                                margin-right: 10px;
+                            }
+                            h2{
+                                color: $heading2Color;
+                                font-size: 1rem;
+                                letter-spacing: 0.5px;
+                                margin: 22px auto 18px 0;
+                            }
+                        }
+                        .tile-content{
+                            margin: 0px 20px;
+                            h2{
+                                color:$text-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
