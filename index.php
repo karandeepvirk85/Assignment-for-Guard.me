@@ -95,7 +95,8 @@
                     </div>
                 </div>
             </div>
-            <p><a target="_blank" href="assets/assignment.pdf"><i class="fa fa-file-pdf-o"></i> For other answers Please view this PDF Document.</a></p>
+            <p><a target="_blank" href="assets/assignment.pdf"><i class="fa fa-file-pdf-o"></i>Click Here for other answers Please view this PDF Document.</a></p>
+            <p><a target="_blank" href="https://github.com/karandeepvirk85/Assignment-for-Guard.me"> Click here for git repo.</a></p>
         </div>
     </section>
 </body>
