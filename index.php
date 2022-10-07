@@ -34,10 +34,13 @@
     // Floyd Triangle
     $triangleValue = isset($_POST['floyd_triangle']) ? $_POST['floyd_triangle'] : 9;
     // String to Validate
-    $stringToValidate = isset($_POST['string_to_validate']) ? $_POST['string_to_validate'] : 'sfR234ki*&'; 
- 
+    $stringToValidate = isset($_POST['string_to_validate']) ? $_POST['string_to_validate'] : 'sfR234ki*&';  
+    // text for Crawler Function
+    $strTextToSearch = isset($_POST['text_to_search']) ? trim($_POST['text_to_search']) : 'Real People. Real Solutions. Real Life.'; 
     // Init Class
-    $assignmentObject = new AssignmentClass($stringToValidate, $assignmentContent, $triangleValue);
+    if(class_exists('AssignmentClass')){
+        $assignmentObject = new AssignmentClass($stringToValidate, $assignmentContent, $triangleValue, $strTextToSearch);
+    }
 ?>
 <head>
     <link rel="stylesheet" href="sass/style.css"/>
@@ -51,14 +54,19 @@
     <section>
         <div class="assignment-outer-container">
             <div class="string-validity">
-                <h1>String Validity</h1>
+                <h1>Data Input</h1>
                 <form method = "POST">
-                    <input type="text" placeholder="String to Check Validity" name="string_to_validate"/>
-                    <input type ="number" placeholder="Floyd Triangle Value" name="floyd_triangle"/>
-                    <button type="submit">Submit</button> 
+                    <input type="text" value="<?php echo !isset($_POST['string_to_validate']) ? $assignmentObject->stringToValidate : '';?>" placeholder="String to Check Validity" name="string_to_validate"/>
+                    <input type ="number" value="<?php echo !isset($_POST['floyd_triangle']) ? $assignmentObject->triangleValue : '';?>" placeholder="Floyd Triangle Value" name="floyd_triangle"/>
+                    <input type ="text" name="text_to_search" value="<?php echo !isset($_POST['text_to_search']) ? $assignmentObject->strTextToSearch : '';?>" placeholder ="Text to Search (https://www.guard.me)"/>  
+                    <button type="submit">Submit Values</button> 
                 </form>
-                <p><?php echo $assignmentObject->stringToValidate;?></p>
-                <p><?php echo $assignmentObject->isStringValid;?></p>
+
+                <div class="result">
+                    <h1>RESULT</h1>
+                    <p><strong><?php echo $assignmentObject->stringToValidate;?></strong> <?php echo $assignmentObject->isStringValid;?></p>
+                    <p><?php echo $assignmentObject->crawlPage("https://www.guard.me", $assignmentObject->strTextToSearch);?></p>
+                </div>
             </div>
 
             <div class="flyod-triangle">
@@ -87,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <p><a target="_blank" href="assets/assignment.pdf"><i class="fa fa-pdf"></i> For other answers Please view this PDF Document.</a></p>
+            <p><a target="_blank" href="assets/assignment.pdf"><i class="fa fa-file-pdf-o"></i> For other answers Please view this PDF Document.</a></p>
         </div>
     </section>
 </body>

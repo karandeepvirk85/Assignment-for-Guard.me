@@ -5,12 +5,14 @@ class AssignmentClass{
     public $isStringValid = 'String is Not Valid';
     public $assignmentContent;
     public $triAngleValue;
+	public $strTextToSearch;
 
-    function __construct($string, $assignmentContent, $triAngleValue = 9){
+    function __construct($string, $assignmentContent, $triAngleValue = 9, $strTextToSearch){
         $this->stringToValidate = trim($string);
         $this->assignmentContent = $assignmentContent;
         $this->isStringValid();
         $this->triangleValue = $triAngleValue;
+		$this->strTextToSearch = $strTextToSearch;
     }
     /**
     * 
@@ -66,6 +68,21 @@ class AssignmentClass{
           $strHtml .= "\r\n";
         }
         return $strHtml;
-      }
+    }
+
+	/**
+	 * Check if text exists in a page
+	 */
+	public function crawlPage($strUrl){
+		
+		$webString = file_get_contents($strUrl);
+
+		if (strpos($webString, $this->strTextToSearch) !== false) {
+			return $this->strTextToSearch.' found in https://www.guard.me';
+		}else{
+			return $this->strTextToSearch.' NOT found in https://www.guard.me';;
+		}
+	}
 }
+
 ?>
