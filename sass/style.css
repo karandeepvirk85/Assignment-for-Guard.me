@@ -10,6 +10,7 @@ body {
 }
 .assignment-outer-container a {
   font-size: 1.5rem;
+  text-decoration: none;
 }
 .assignment-outer-container .string-validity {
   background-color: #ededed;
@@ -20,22 +21,9 @@ body {
   padding: 2rem;
   margin: 20px auto;
 }
-.assignment-outer-container .string-validity form input[type=text], .assignment-outer-container .string-validity form input[type=number] {
-  display: block;
-  padding: 0.5rem;
-  border-radius: 2px;
-  border: 1px solid ghostwhite;
-  margin: 10px;
-  width: 100%;
-}
-.assignment-outer-container .string-validity form button {
-  background: #15d798;
-  border-radius: 11px;
-  padding: 6px 25px;
-  color: #ffffff;
-  display: inline-block;
-  font: normal bold 26px/1 "Open Sans", sans-serif;
-  text-align: center;
+.assignment-outer-container .string-validity .form-group {
+  background: #ffffff;
+  padding: 1.5rem 2rem;
 }
 .assignment-outer-container .string-validity h1 {
   margin: 6px 0 10px 0;
@@ -44,8 +32,8 @@ body {
   margin: 6px;
 }
 .assignment-outer-container .flyod-triangle {
-  background-color: #ededed;
-  padding: 1rem;
+  background-color: #ffffff;
+  padding: 2rem;
 }
 .assignment-outer-container .flyod-triangle h1 {
   margin: 6px 0 10px 0;

@@ -17,6 +17,7 @@ body{
     padding:10px 15% 60px 15%;
     a{
         font-size: 1.5rem;
+        text-decoration: none;
     }
     .string-validity{
         background-color: $assignment-background;
@@ -26,24 +27,9 @@ body{
             padding: 2rem;
             margin: 20px auto;
         }
-        form{
-            input[type=text], input[type=number]{
-                display: block;
-                padding: 0.5rem;
-                border-radius: 2px;
-                border: 1px solid ghostwhite;
-                margin: 10px;
-                width: 100%;
-            }
-            button{
-                background:    #15d798;
-                border-radius: 11px;
-                padding:       6px 25px;
-                color:         #ffffff;
-                display:       inline-block;
-                font:          normal bold 26px/1 "Open Sans", sans-serif;
-                text-align:    center;
-            }
+        .form-group{
+            background: #ffffff;
+            padding: 1.5rem 2rem;
         }
         h1{
             margin: 6px 0 10px 0;
@@ -53,8 +39,8 @@ body{
         }
     }
     .flyod-triangle{
-        background-color: $assignment-background;
-        padding: 1rem;
+        background-color: #ffffff;
+        padding: 2rem;
         h1{
             margin: 6px 0 10px 0;
         }

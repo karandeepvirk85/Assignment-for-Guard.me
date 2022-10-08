@@ -7,6 +7,7 @@ class AssignmentClass{
     public $triAngleValue;
 	public $strTextToSearch;
 
+    // Class Contructor
     function __construct($string, $assignmentContent, $triAngleValue = 9, $strTextToSearch){
         $this->stringToValidate = trim($string);
         $this->assignmentContent = $assignmentContent;
@@ -14,15 +15,15 @@ class AssignmentClass{
         $this->triangleValue = $triAngleValue;
 		$this->strTextToSearch = $strTextToSearch;
     }
+
     /**
-    * 
-    * ->String Validate
-    * @ at least one letter
-    * @ at least two digits
-    * @ at least one special character, excluding the exclamation mark
-    * @ minimum 5 characters, maximum 20 characters
-    * @ the third letter must be uppercase
-    * @ it must contain 1 vowel (a, e, i, o, u)
+    * String Validate
+    @ at least one letter
+    @ at least two digits
+    @ at least one special character, excluding the exclamation mark
+    @ minimum 5 characters, maximum 20 characters
+    @ the third letter must be uppercase
+    @ it must contain 1 vowel (a, e, i, o, u)
     */
     public function isStringValid(){
         if(empty($this->stringToValidate)){
@@ -43,20 +44,7 @@ class AssignmentClass{
 
     /**
      * Print Floyd Triagle
-     * @ Parameter: Rows
-     * 
      */
-    // public function printTriangle($numberRows){
-    //     $val = 1;
-    //     for($i = 1; $i <= $numberRows; $i++) {
-    //     for($j = 1; $j <= $i; $j++) {
-    //         echo "$val "; 
-    //         $val++;
-    //     }
-    //         echo "\n"; 
-    //     }
-    // }
-
     public function printTriangle(){
         $strHtml = '';
         $value = 1;
@@ -70,18 +58,21 @@ class AssignmentClass{
         return $strHtml;
     }
 
-	/**
-	 * Check if text exists in a page
-	 */
+    /**
+     * Crawl Page and Search String
+     */
 	public function crawlPage($strUrl){
-		
+        // Set Return
+        $strReturn = '';
+		// get contents from page
 		$webString = file_get_contents($strUrl);
-
+        // find string position
 		if (strpos($webString, $this->strTextToSearch) !== false) {
-			return $this->strTextToSearch.' found in https://www.guard.me';
+			$strReturn = $this->strTextToSearch.' found in https://www.guard.me';
 		}else{
-			return $this->strTextToSearch.' NOT found in https://www.guard.me';;
+			$strReturn = $this->strTextToSearch.' Not found in https://www.guard.me';;
 		}
+        return $strReturn;
 	}
 }
 
