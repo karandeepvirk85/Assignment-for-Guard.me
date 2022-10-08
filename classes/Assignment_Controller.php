@@ -1,19 +1,24 @@
 <?php
-class AssignmentClass{
-
+class AssignmentClass
+{
     public $stringToValidate;
-    public $isStringValid = 'String is Not Valid';
+    public $isStringValid = "String is Not Valid";
     public $assignmentContent;
     public $triAngleValue;
-	public $strTextToSearch;
+    public $strTextToSearch;
 
     // Class Contructor
-    function __construct($string, $assignmentContent, $triAngleValue = 9, $strTextToSearch){
+    function __construct(
+        $string,
+        $assignmentContent,
+        $triAngleValue = 9,
+        $strTextToSearch
+    ) {
         $this->stringToValidate = trim($string);
         $this->assignmentContent = $assignmentContent;
         $this->isStringValid();
         $this->triangleValue = $triAngleValue;
-		$this->strTextToSearch = $strTextToSearch;
+        $this->strTextToSearch = $strTextToSearch;
     }
 
     /**
@@ -25,35 +30,42 @@ class AssignmentClass{
     @ the third letter must be uppercase
     @ it must contain 1 vowel (a, e, i, o, u)
     */
-    public function isStringValid(){
-        if(empty($this->stringToValidate)){
-          $this->isStringValid = 'String Cannot be Empty';
-          return;
+    public function isStringValid()
+    {
+        if (empty($this->stringToValidate)) {
+            $this->isStringValid = "String Cannot be Empty";
+            return;
         }
-        if(strpos($this->stringToValidate,'!') > 0){
-          $this->isStringValid = 'String cannot have " ! " Symbol';
-          return;
-        } 
-        if(ctype_upper(substr($this->stringToValidate, 2, 1)) === false){
-          $this->isStringValid = 'Third Letter must be Upper Case';
-          return;
+        if (strpos($this->stringToValidate, "!") > 0) {
+            $this->isStringValid = 'String cannot have " ! " Symbol';
+            return;
+        }
+        if (ctype_upper(substr($this->stringToValidate, 2, 1)) === false) {
+            $this->isStringValid = "Third Letter must be Upper Case";
+            return;
         }
 
-        $this->isStringValid = preg_match("/^(?=.*\d)(?=.*..[A-Z])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?=.*[aeiou]).{5,20}.$/i", $this->stringToValidate) ? 'String is Valid' : 'String is not Valid';
+        $this->isStringValid = preg_match(
+            "/^(?=.*\d)(?=.*..[A-Z])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?=.*[aeiou]).{5,20}.$/i",
+            $this->stringToValidate
+        )
+            ? "String is Valid"
+            : "String is not Valid";
     }
 
     /**
      * Print Floyd Triagle
      */
-    public function printTriangle(){
-        $strHtml = '';
+    public function printTriangle()
+    {
+        $strHtml = "";
         $value = 1;
-        for($i = 1; $i <= $this->triangleValue; $i++) {
-          for($j = 1; $j <= $i; $j++) {
-            $strHtml .= $value; 
-            $value++;
-          }
-          $strHtml .= "\r\n";
+        for ($i = 1; $i <= $this->triangleValue; $i++) {
+            for ($j = 1; $j <= $i; $j++) {
+                $strHtml .= $value;
+                $value++;
+            }
+            $strHtml .= "\r\n";
         }
         return $strHtml;
     }
@@ -61,19 +73,22 @@ class AssignmentClass{
     /**
      * Crawl Page and Search String
      */
-	public function crawlPage($strUrl){
+    public function crawlPage($strUrl)
+    {
         // Set Return
-        $strReturn = '';
-		// get contents from page
-		$webString = file_get_contents($strUrl);
+        $strReturn = "";
+        // get contents from page
+        $webString = file_get_contents($strUrl);
         // find string position
-		if (strpos($webString, $this->strTextToSearch) !== false) {
-			$strReturn = $this->strTextToSearch.' found in https://www.guard.me';
-		}else{
-			$strReturn = $this->strTextToSearch.' Not found in https://www.guard.me';;
-		}
+        if (strpos($webString, $this->strTextToSearch) !== false) {
+            $strReturn =
+                $this->strTextToSearch . " found in https://www.guard.me";
+        } else {
+            $strReturn =
+                $this->strTextToSearch . " Not found in https://www.guard.me";
+        }
         return $strReturn;
-	}
+    }
 }
 
 ?>
