@@ -66,11 +66,11 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="assets/assignment.pdf">Answers PDF</a>
+                        <a class="nav-link" target="_blank" href="assets/assignment.pdf">Answers PDF</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/karandeepvirk85/Assignment-for-Guard.me">GitHub Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/karandeepvirk85/Assignment-for-Guard.me">GitHub Repo</a>
                     </li>
                 </ul>
             </div>
@@ -128,7 +128,7 @@
                             }?>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </section>
     </body>
