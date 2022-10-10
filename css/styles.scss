@@ -11,10 +11,18 @@ body{
 }
 
 .assignment-outer-container{
+    @media (max-width:768px){
+        padding:10px 5% 60px 5%;
+    }
+    @media (min-width:992px){
+        padding:10px 10% 60px 10%;
+    }
+    @media (min-width:1200px){
+        padding:10px 15% 60px 15%;
+    }
     background-color:$assignment-background;
     width: auto;
     height: auto;
-    padding:10px 15% 60px 15%;
     a{
         font-size: 1.5rem;
         text-decoration: none;
@@ -55,6 +63,9 @@ body{
         }
     }
     .assignment-inner{
+        @media (max-width:768px){
+            flex-direction: column;
+        }
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -62,9 +73,12 @@ body{
         height: auto;
         align-items: initial;
         .assignment-inner-left{
+            @media (max-width:768px){
+                width: 100%;
+            }
+            width: 30%;
             height: auto;
             background-color:$assignment-left;
-            width: 30%;
             display: flex;
             flex-direction: column;
             align-items: start;
@@ -72,6 +86,9 @@ body{
             padding: 60px 1rem 60px 2rem;
         }
         .assignment-inner-right{
+            @media (max-width:768px){
+                width: 100%;
+            }
             width: 70%;
             background-color: $assignment-right;
             box-shadow: 6px 0px 4px -2px #c7c7c742;
@@ -79,9 +96,17 @@ body{
             border: 1px solid #dfdfdf94;
             border-left: none;
             .assignment-tiles-outer{
-                display: grid;
-                grid-template-columns: 1fr 1fr;
+                @media (min-width:992px){
+                    grid-template-columns: 1fr;
+                    display: grid;
+                }
+                @media (min-width:1200px){
+                    grid-template-columns: 1fr 1fr;
+                    display: grid;
+                }
+                
                 grid-column-gap: 2rem;
+  
                 .assignment-tiles{
                     .tile-inner{
                         display: flex;
